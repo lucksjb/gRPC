@@ -1,0 +1,17 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example.grpcserver;
+
+message TabuadaRequest {
+    string name = 1;
+    int32 numero = 2;
+}
+
+message TabuadaResponse {
+    string text = 1;
+    int32 resultado = 2;
+}
+
+service CalculaTabuadaService {
+    rpc calculaTabuada (TabuadaRequest) returns (stream TabuadaResponse);
+}
